@@ -98,7 +98,7 @@ namespace NotifySecurity
 
         public string GetContextMenuLabel(Office.IRibbonControl control)
         {
-            return "Alert Security";
+            return "Segnala al CERT";
         }
 
         public string GetGroupLabel(Office.IRibbonControl control)
@@ -108,7 +108,7 @@ namespace NotifySecurity
         }
         public string GetTabLabel(Office.IRibbonControl control)
         {
-            return "Alert Security";
+            return "Segnala al CERT";
 
         }
 
@@ -127,12 +127,12 @@ namespace NotifySecurity
 
         public string GetScreentipLabel(Office.IRibbonControl control)
         {
-            return "Alert Security";
+            return "Segnala al CERT";
         }
 
         public string GetButtonLabel(Office.IRibbonControl control)
         {
-            return "Alert Security";
+            return "Segnala al CERT";
         }
 
         public void ShowMessageClick(Office.IRibbonControl control)
@@ -171,7 +171,7 @@ namespace NotifySecurity
                 {
 
                     tosend.To = Properties.Settings.Default.Security_Team_Mail;
-                    tosend.Subject = "[User Alert] Suspicious mail";
+                    tosend.Subject = "[User Alert] Segnalazione mail sospetta";
 
                     tosend.CC = Properties.Settings.Default.Security_Team_Mail_cc;
                     tosend.BCC = Properties.Settings.Default.Security_Team_Mail_bcc;
@@ -205,7 +205,7 @@ namespace NotifySecurity
                         if (typeFound == "unknown")
                             typeFound = (selection[1] is Outlook.TaskItem) ? "TaskItem" : typeFound;
 
-                        allHeaders = "Selected Outlook item was not a mail (" + typeFound + "), no header extracted";
+                        allHeaders = "L'Item di Otlook selezionato non è una mail (" + typeFound + "), impossibile estrarre un header";
                     }
 
                     #endregion
@@ -218,11 +218,11 @@ namespace NotifySecurity
                     }
                     else
                     {
-                        tosend.Body = "Hello, I received the attached email and I think it is suspicious";
+                        tosend.Body = "Salve, si inoltra la mail ricevuta perchè sospetta";
                         tosend.Body += "\n";
-                        tosend.Body += "I think this mail is malicious for the following reasons:";
+                        tosend.Body += "Inserire di seguito eventuali indicazioni relative alla mail allegate:";
                         tosend.Body += "\n";
-                        tosend.Body += "Please analyze and provide some feedback.";
+                        tosend.Body += "Restiamo in attesa di un feedback";
                         tosend.Body += "\n";
                         tosend.Body += "\n";
 
